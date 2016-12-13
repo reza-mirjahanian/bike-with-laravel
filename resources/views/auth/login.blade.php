@@ -1,7 +1,12 @@
 @extends('panel.layouts.admin')
 
 @section('topbar')
-    User:'admin@gmail.com' Pass:'admin' (Please run: php artisan db:seed --class=UsersTableSeeder)
+    User:'admin@gmail.com' Pass:'admin'
+    Please run:
+    <br>
+    composer dump-autoload
+    <br>
+    php artisan db:seed --class=UsersTableSeeder
 @endsection
 
 

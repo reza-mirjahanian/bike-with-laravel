@@ -50,6 +50,17 @@ class BikeController extends Controller
      */
     public function store(Request $request)
     {
+        $success = $errorsList = [];
+
+
+        if ($this->repo->store($request)) {
+            $success[] = 'New bike has been created successfully';
+        } else {
+            $errorsList[] = 'Something goes wrong';
+        }
+
+
+        return redirect()->route('bikes.create')->with(compact('errorsList' ,'success') );
 
 
 
