@@ -11,6 +11,25 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'HomeController@index')->name('home');
+
+
+Route::group(['prefix' => 'panel','namespace' => 'Panel','middleware'=>'auth'], function () {
+
+
+    Route::resource('bikes', 'BikeController');
+
+
 });
+
+
+Route::get('/bike/{id}', 'HomeController@detail')->name('bike_detail')->where(['id' => '[0-9]+']);
+
+
+Route::get('/logout', function()
+{
+    Auth::logout();
+    return redirect()->route('home');
+
+});
+Auth::routes();
