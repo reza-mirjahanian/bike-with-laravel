@@ -21,7 +21,7 @@ class HomeController extends Controller
     //Load front page
     function index(Request $request)
     {
-        $data =  collect([]);
+        $data = $this->repo->filter($request->all());
         return view('home.indexHome', ['bikes' => $data, 'input' => $request->all()]);
     }
 

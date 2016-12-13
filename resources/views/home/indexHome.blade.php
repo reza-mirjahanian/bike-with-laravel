@@ -97,7 +97,13 @@
                     </div>
                 </div>
                 <!-- .mv-list-product-wrapper-->
+                <div class="mv-pagination-wrapper">
 
+                {{ $bikes->appends($input)->links() }}
+
+
+                <!-- .mv-pagination-style-1-->
+                </div>
 
                 <!-- .mv-pagination-wrapper-->
 
